@@ -1,6 +1,5 @@
 # Library backend API Documentation
 
-Recurrent Library System project, that gets updated every now and then.
 
 ## Get authentified
 
