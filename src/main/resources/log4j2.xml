@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="WARN">
+    <Appenders>
+        <File name="LogFile" fileName="logs/app.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.backend.library.system" level="info" additivity="false"> <!-- created this logger to ensure that only the logger.info created the application are triggered, without third party libraries -->
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="LogFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
