@@ -1,5 +1,7 @@
 # Library backend API Documentation
 
+Recurrent Library System project, that gets updated every now and then.
+
 ## Get authentified
 
 All endpoints in this project were secured using Spring Security and a JWT-based authorization, where for every endpoint you want to call, you should have a certain cookie set in the request header, that shows that you were successfully authenticated.
