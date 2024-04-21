@@ -1,16 +1,13 @@
 package com.backend.library.system.utils;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-import lombok.extern.log4j.Log4j2;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-@Log4j2
+
 public class Utils {
     public static String printStackTrace (Exception e){
         StringWriter sw = new StringWriter();
@@ -37,7 +34,7 @@ public class Utils {
     }
 
     public static boolean isExpiredToken(String token) {
-        Jws<Claims> claimsJws = Jwts.parserBuilder()
+        Jwts.parserBuilder()
                 .setSigningKey(getJWTSecret().getBytes())
                 .build()
                 .parseClaimsJws(token);

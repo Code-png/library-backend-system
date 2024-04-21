@@ -1,7 +1,6 @@
 package com.backend.library.system;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,7 +14,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @ControllerAdvice
-@Log4j2
 public class GlobalExceptionHandler {
     @ExceptionHandler(NoSuchElementException.class)
     //This exception handler is for when we are trying to retrieve an entity that doesn't exist

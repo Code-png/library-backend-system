@@ -15,11 +15,8 @@ import com.backend.library.system.filters.JWTTokenGeneratorFilter;
 import com.backend.library.system.filters.JWTTokenValidatorFilter;
 import com.backend.library.system.filters.RequestValidationFilter;
 
-import lombok.extern.log4j.Log4j2;
-
 @Configuration
 @EnableWebSecurity
-@Log4j2
 public class SecurityConfig{
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
