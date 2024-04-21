@@ -14,6 +14,7 @@ import com.backend.library.system.filters.CsrfCookieFilter;
 import com.backend.library.system.filters.JWTTokenGeneratorFilter;
 import com.backend.library.system.filters.JWTTokenValidatorFilter;
 import com.backend.library.system.filters.RequestValidationFilter;
+import org.springframework.security.web.header.writers.XXssProtectionHeaderWriter;
 
 @Configuration
 @EnableWebSecurity
@@ -33,16 +34,13 @@ public class SecurityConfig{
                 .requestMatchers("/login").permitAll()
                 .anyRequest().authenticated())
         .formLogin(form -> form
-                .loginPage("/login")
                 .permitAll())
         .httpBasic(Customizer.withDefaults())
         .headers(headers -> headers
                 .contentSecurityPolicy(csp -> csp
-                    .policyDirectives("script-src 'self'; object-src 'none';")));
-        //TODO: Add XSS protection attribute (check stackoverflow for csp deprecated)
-        //TODO: Add JWT generation and validation filters
-        //TODO: Add user details and user details service
-
+                    .policyDirectives("script-src 'self'; object-src 'none';"))
+                    .xssProtection(xss -> xss.headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED_MODE_BLOCK))
+                );
         return http.build();
     }
 }
